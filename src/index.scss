@@ -1,0 +1,72 @@
+:root {
+  --font-family: "Roboto", sans-serif;
+  --primary: #FE5F1E;
+  --primary-hover: #ee5c1f;
+  --secondary: #F9F9F9;
+  --secondary-hover: #CACACA;
+
+  --white: #fff;
+  --black: #2C2C2C;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 50px 0;
+  background: var(--white);
+  font-family: var(--font-family);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+
+picture {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.vHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
