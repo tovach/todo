@@ -1,0 +1,26 @@
+.container {
+  padding: 10px 5px;
+  background: var(--primary)
+}
+
+.list {
+  display: flex;
+  gap: 10px;
+}
+
+.item {
+
+  font-size: 18px;
+
+  a {
+    display: block;
+    padding: 10px 15px;
+    background: var(--secondary);
+    border-radius: 5px;
+    &:hover {
+      background: var(--secondary-hover);
+
+    }
+
+  }
+}

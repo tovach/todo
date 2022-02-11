@@ -4,8 +4,8 @@ import Navigation from "../Navigation/Navigation";
 
 const Layout: FC = () => {
     const paths = [
-        {id: 0, title: 'Home',path: '/'},
-        {id: 1, title: 'Todo',path: '/todo'}]
+        {id: 0, title: 'Home', path: '/'},
+        {id: 1, title: 'Todo', path: '/todo'}]
     return (
         <>
             <header>
@@ -16,7 +16,6 @@ const Layout: FC = () => {
             <main>
                 <Outlet/>
             </main>
-            <footer>footer</footer>
         </>
     );
 };
