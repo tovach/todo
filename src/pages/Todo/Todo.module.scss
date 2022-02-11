@@ -1,0 +1,20 @@
+.container {
+  padding-top: 10px;
+}
+
+.list {
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: column;
+  gap: 10px;
+}
+.listItem{
+  display: grid;
+  padding: 10px;
+  gap: 5px;
+  grid-template-columns: 5px 300px 50px 100px;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--secondary);
+  border-radius: 5px;
+}
