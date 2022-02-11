@@ -1,10 +1,21 @@
 import React, {FC} from 'react';
+import {Link} from "react-router-dom";
 
-const Navigation: FC = () => {
+interface NavigationProps {
+    links: { id: number, title: string, path: string }[]
+}
+
+const Navigation: FC<NavigationProps> = ({links}) => {
     return (
-        <div>
-
-        </div>
+        <nav>
+            <ul>
+                {links.map(el=>
+                <li key={el.id}>
+                    <Link to={el.path}>{el.title}</Link>
+                </li>
+                )}
+            </ul>
+        </nav>
     );
 };
 
