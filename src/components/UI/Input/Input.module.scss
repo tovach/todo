@@ -1,0 +1,11 @@
+.input {
+  text-align: center;
+  width: 100%;
+
+  &:disabled {
+    background: transparent;
+    border: none;
+    color: var(--black);
+  }
+}
+
