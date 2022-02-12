@@ -1,11 +1,16 @@
-import React, {FC} from 'react';
-import {useTodos} from "../../hooks";
+import React, {FC, useState} from 'react';
+import {useGetTodos} from "../../hooks";
 
 import styles from './Todo.module.scss'
+import ItemList from "../../components/ItemList/ItemList";
+import Button from "../../components/UI/Button/Button";
 
 const Todo: FC = () => {
-    const {data, error, loading} = useTodos();
-    console.log(data?.map(el => el.completed));
+    const [limit, setLimit] = useState(20);
+    const [page, setPage] = useState(1)
+
+    const {data, error, loading, totalPages} = useGetTodos(page, limit);
+
     if (loading) {
         return (<h1>...Loading</h1>)
     }
@@ -18,22 +23,28 @@ const Todo: FC = () => {
         <section className={styles.container}>
             <ul className={styles.list}>
                 <li className={styles.listItem}>
-                    <div>ID</div>
-                    <div>Title</div>
                     <div>UserID</div>
+                    <div>Title</div>
                     <div>Completed?</div>
+                    <div>Edit</div>
+                    <div>Remove</div>
                 </li>
             </ul>
-            <ul className={styles.list}>
-                {data?.map(el =>
-                    <li className={styles.listItem} key={el.id}>
-                        <div>{el.id}</div>
-                        <div>{el.title}</div>
-                        <div>{el.userId}</div>
-                        <div>{el.completed ? 'yes' : 'no'}</div>
-                    </li>
-                )}
+
+            <ItemList items={data!}/>
+
+            <ul className={styles.pagination}>
+                {
+                    Array(totalPages).fill(0).map((el, index)=>
+                        <li key={index}>
+                            <Button onClick={e=>setPage(parseInt(e.currentTarget.innerText))}>
+                                {index+1}
+                            </Button>
+                        </li>
+                    )
+                }
             </ul>
+
         </section>
     );
 };
