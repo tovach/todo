@@ -1,7 +1,11 @@
 import {useEffect, useState} from "react";
 import {TodoItem} from "../types";
+import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
+import {bindActionCreators} from "@reduxjs/toolkit";
+import {cartActions} from '../store/slices/tasksSlice'
+import {AppDispatch, AppStore} from "../store";
 
-export const useGetTodos = (page: number, limit: number=10) => {
+export const useGetTodos = (page: number, limit: number = 10) => {
     const url = `https://jsonplaceholder.typicode.com/todos/?_page=${page}&_limit=${limit}`;
     const [data, setData] = useState<TodoItem[]>();
     const [error, setError] = useState(false);
@@ -33,3 +37,14 @@ export const useGetTodos = (page: number, limit: number=10) => {
         , [page])
     return {data, error, loading, totalPages}
 }
+
+
+const allActions = {
+    ...cartActions
+}
+export const useActions = () => {
+    const dispatch = useDispatch<AppDispatch>()
+    return bindActionCreators(allActions, dispatch)
+}
+
+export const useTypedSelector: TypedUseSelectorHook<AppStore> = useSelector;

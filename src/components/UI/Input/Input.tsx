@@ -2,12 +2,12 @@ import React, {DetailedHTMLProps, FC, HTMLAttributes} from 'react';
 
 import styles from './Input.module.scss'
 
-interface TextInputProps extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+interface InputProps extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> {
     value: string;
     disabled?: boolean;
 }
 
-const Input: FC<TextInputProps> = ({value, disabled, ...props}) => {
+const Input: FC<InputProps> = ({value, disabled, ...props}) => {
     return (
         <input type={'text'} className={styles.input} value={value} {...props} required disabled={disabled}/>
     );
