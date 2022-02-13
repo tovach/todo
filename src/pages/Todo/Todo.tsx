@@ -2,8 +2,8 @@ import React, {FC, useState} from 'react';
 import {useGetTodos} from "../../hooks";
 
 import styles from './Todo.module.scss'
-import ItemList from "../../components/ItemList/ItemList";
 import Button from "../../components/UI/Button/Button";
+import TaskList from "../../components/TaskList/TaskList";
 
 const Todo: FC = () => {
     const [limit, setLimit] = useState(20);
@@ -31,7 +31,7 @@ const Todo: FC = () => {
                 </li>
             </ul>
 
-            <ItemList items={data!}/>
+            <TaskList items={data!}/>
 
             <ul className={styles.pagination}>
                 {

@@ -3,20 +3,19 @@ import {TodoItem} from "../../types";
 import TextInput from "../UI/Input/Input";
 import TextArea from "../UI/TextArea/TextArea";
 
-import styles from "./Item.module.scss";
+import styles from "./Task.module.scss";
 import Button from "../UI/Button/Button";
 
 interface TodoItemProps {
     item: TodoItem
 }
 
-const Item: FC<TodoItemProps> = ({item}) => {
+const Task: FC<TodoItemProps> = ({item}) => {
     const [todo, setTodo] = useState<TodoItem>(item);
     const [edit, setEdit] = useState(false);
 
     const formHandler = (obj: TodoItem) => {
         return (e: FormEvent<HTMLFormElement>) => {
-            console.log('sbm')
             e.preventDefault()
             setEdit(!edit)
         }
@@ -59,4 +58,4 @@ const Item: FC<TodoItemProps> = ({item}) => {
     );
 };
 
-export default Item;
+export default Task;

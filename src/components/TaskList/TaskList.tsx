@@ -1,23 +1,23 @@
 import React, {FC} from 'react';
 import {TodoItem} from "../../types";
-import Item from "../Item/Item";
+import Task from "../Task/Task";
 
-import styles from "./ItemList.module.scss"
+import styles from "./TaskList.module.scss"
 
 interface ItemListProps {
     items: TodoItem[];
 }
 
-const ItemList: FC<ItemListProps> = ({items}) => {
+const TaskList: FC<ItemListProps> = ({items}) => {
     return (
         <ul className={styles.list}>
             {items.map(el =>
                 <li key={el.id} className={styles.item}>
-                    <Item item={el}/>
+                    <Task item={el}/>
                 </li>
             )}
         </ul>
     );
 };
 
-export default ItemList;
+export default TaskList;
